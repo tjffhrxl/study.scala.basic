@@ -1,0 +1,16 @@
+@(currentPage: Integer, pageCount: Integer, blockPageSize: Integer)
+
+<div class="pagging">
+
+    <a class="first" style="cursor: pointer"><img src="https://pics.esmplus.com/front/btn/btn_page_first.gif"></a>
+    <a class="prev" style="cursor: pointer"><img src="https://pics.esmplus.com/front/btn/btn_prevlist.gif"></a>
+    @for(index <- utils.TemplateHelpers.createRange(currentPage, blockPageSize, pageCount)) {
+            @if(currentPage == index) {
+                <a class="on">@index</a>
+            } else {
+                <a class="paggingnum" href='@routes.Announce.esmAnnounce(index,"","","","",0,0)'>@index</a>
+            }
+        }
+    <a class="next" style="cursor: pointer"><img src="https://pics.esmplus.com/front/btn/btn_nextlist.gif"></a>
+    <a class="end" style="cursor: pointer"><img src="https://pics.esmplus.com/front/btn/btn_page_end.gif"></a>
+</div>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="models.mybatis.mappers.NoticeMapper" >
+    <cache/>
+
+    <select id="callGetNotice" resultMap="resultNotice" statementType="CALLABLE" >
+        { CALL dbo.UP_Admin_SelectNoticeInfo(2522) }
+    </select>
+
+    <resultMap type="TspNoticeT2" id="resultNotice">
+        <result property="noticeSeq" column="NOTICE_NO"/>
+        <result property="noticeType" column="NOTICE_TYPE"/>
+        <result property="exposedType" column="NOTICE_CODE"/>
+        <result property="siteType" column="SITE_ID"/>
+        <result property="linkType" column="LINK_TYPE"/>
+        <result property="startDate" column="BEGIN_DATE"/>
+        <result property="endDate" column="END_DATE"/>
+        <result property="noticeTitle" column="TITLE"/>
+        <result property="noticeContent" column="CONTENTS"/>
+        <result property="insDate" column="INS_DATE"/>
+        <result property="hitCount" column="HIT_COUNT"/>
+    </resultMap>
+
+    <select id="callGetNoticeList" resultMap="resultNotice" statementType="CALLABLE" >
+        { CALL dbo.UP_Admin_SelectNoticeInfo(2522) }
+    </select>
+
+</mapper>

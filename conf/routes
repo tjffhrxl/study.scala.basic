@@ -1,0 +1,22 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET         /                                    controllers.Application.index()
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file                        controllers.Assets.at(path="/public", file)
+
+
+
+# esm notice
+GET         /esmAnnounce                         controllers.Announce.esmAnnounce(page: Integer ?=1, site:String ?= "All",noticeType:String ?= "",searchType:String ?= "1",searchText:String ?="",noticeNo:Integer ?=0,selectNo:Integer ?=0)
+#GET        /esmAnnounce                         controllers.Announce.esmAnnounce()
+POST        /getNotice/$noticeSeq<[0-9]+>        controllers.Announce.getNotice(noticeSeq:Int)
+
+
+
+
+
+GET         /esmAnnounceFromAPI                   controllers.Announce.esmAnnounceFromAPI(page: Integer ?=1, site:String ?= "All",noticeType:String ?= "",searchType:String ?= "1",searchText:String ?="",noticeNo:Integer ?=0,selectNo:Integer ?=0)

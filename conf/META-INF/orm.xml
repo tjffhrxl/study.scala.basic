@@ -1,0 +1,10 @@
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 version="1.0"
+        >
+    <named-native-query name="noticeQuery" >
+        <query><![CDATA[
+            select top 1 NOTICE_NO,NOTICE_TYPE,SITE_ID,TITLE,TOP_YN,0 as TOTAL_COUNT,HIT_COUNT,INS_DATE from dbo.NOTICE with(nolock)
+            ]]></query>
+    </named-native-query>
+</entity-mappings>
